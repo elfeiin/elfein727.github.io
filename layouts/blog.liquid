@@ -6,10 +6,18 @@
   {% include 'nav' %}
   {% include 'heading' %}
   <div class="content">
-   {{ page.content }}
+   {% for post in loop_content["posts"] %}
+    <h2>{{ post.title }}</h2>
+    <p>
+     {{ post.description}}<br/>
+     <a href="{{ site.baseurl }}{{ post.url }}">
+      {{ site.readMeText }}
+     </a>
+    </p>
+   {% endfor %}
   </div>
   {% include 'breaker' %}
   {% include 'footer' %}
   {% include 'scripts' %}
-  </body>
+ </body>
 </html>
